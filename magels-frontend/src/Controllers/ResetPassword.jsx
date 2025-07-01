@@ -3,7 +3,9 @@ import React from 'react'
 const ResetPassword = () => {
   return (
     <div>
-      This is the change password
+      Please input your new password below: 
+
+      
     </div>
   )
 }
