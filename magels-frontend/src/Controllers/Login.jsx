@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { API_URL } from '../APIs/userAPI';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ loginSuccess }) => {
+const [email , setEmail] = useState('');
+
+}
+
+
+
+
+
+
+const Login = () => 
   return (
     <div>
 This is the login page     
 
-<form>   
+<form onSubmit={loginSuccess}>   
   
-  <input name='username' type='Email' placeholder='email'/>
-<input name='password' type='Password' placeholder='password'/>
+  <input type="text" id="email" name="email" placeholder="email" value={email} onChange={(e) => setEmail (e.target.value)} required/>
+<input type='password' placeholder='password'/>
 
 <button>Log in </button>
 
