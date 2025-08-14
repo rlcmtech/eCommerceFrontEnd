@@ -1,0 +1,28 @@
+.footer {
+  background: #ff9800;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-links {
+  margin-top: 8px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}

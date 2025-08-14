@@ -2,6 +2,7 @@ import React from 'react';
 import About from './About';
 import Login from '../Controllers/Login';
 import Signup from '../Controllers/Signup';
+import Hero from './Hero';
 
 const Homepage = () => {
   return (
@@ -10,6 +11,10 @@ const Homepage = () => {
 
 <div>
 
+</div>
+
+<div id="about">
+  <Hero />
 </div>
 
 <div id="about">

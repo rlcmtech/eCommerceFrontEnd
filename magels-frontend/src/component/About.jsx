@@ -1,56 +1,55 @@
-import React from 'react'
+import React from 'react';
+import '../Styles/About.css';
 
 const About = () => {
   return (
-    <div>
-      It started when my wife brought some pasalubong from work - Polvoron. 
-      I noticed that it was unique, aside from classic it has cookies and cream as variant. It was tasty and delicous.
-      I asked my wife where she bough it, but she said, it was just given by thier boss to them. 
-      At that moment, I've been thinking for a small business that I can start in our humble and small kitchen in our apartment. 
-      I researched on how to make Polvoron, and I thought that the this is something I can enjoy and manage. 
-      Then, after producing the prior batches, I received helpful feedbacks to improve my product - taste, texture, size, price, and packaging.
-      It was on my sixth batch attempt when most consumer started to compliment the Polvorons and and I kept that recipe to cater the preferences of 
-      my customers - I want them to enjoy it!
+    <div className="about-container">
+     
+
+      <ul className="polvoron-list">
+        <li>
+          <h3>Classic Polvoron</h3>
+          <div className="image-placeholder">Image here</div>
+          <p>A timeless treat with a crumbly, melt-in-your-mouth texture.</p>
+        </li>
+        <li>
+          <h3>Cookies & Cream Polvoron</h3>
+          <div className="image-placeholder">Image here</div>
+          <p>Sweet, creamy, and studded with cookie bits for a twist on tradition.</p>
+        </li>
+        <li>
+          <h3>Coffee Polvoron</h3>
+          <div className="image-placeholder">Image here</div>
+          <p>A bold, aromatic flavor for coffee lovers in every bite.</p>
+        </li>
+      </ul>
 
 
-<ul>
+       <section className="about-story">
+        <p>
+          It started when my wife brought some pasalubong from work — Polvoron.
+          I noticed that it was unique; aside from classic, it had cookies and cream as a variant.
+          It was tasty and delicious. I asked my wife where she bought it, but she said it was
+          just given by their boss.
+        </p>
+        <p>
+          At that moment, I’d been thinking of a small business I could start in our humble kitchen.
+          I researched how to make Polvoron and thought this was something I could enjoy and manage.
+          After producing early batches, I received helpful feedback on taste, texture, size, price,
+          and packaging.
+        </p>
+        <p>
+          On my sixth batch attempt, customers began to compliment the Polvorons.
+          I kept that recipe to cater to their preferences — I want them to enjoy it!
+        </p>
+      </section>
 
-<li>
-<p>Classic Polvoron</p>
-<p>image here</p>
-<p>Description</p>
-</li>
-
-<li>
-<p>Cookies & Cream Polvoron</p>
-<p>image here</p>
-<p>Description</p>
-</li>
-
-<li>
-<p>Coffee Polvoron</p>
-<p>image here</p>
-<p>Description</p>
-</li>
-
-</ul>
-
-
-
-Order now!
-<button>
-  Sign up
-</button>
-or
-<button>
-Log in
-</button>
-
-
-
-
+      <div className="order-section">
+        <p>Order now!</p>
+      
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
