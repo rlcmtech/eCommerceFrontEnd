@@ -24,13 +24,7 @@ const Homepage = () => {
 
 
 
-<div id='login'> 
- <Login />
-</div>
 
-<div id='signup'> 
- <Signup />
-</div>
 
 
 

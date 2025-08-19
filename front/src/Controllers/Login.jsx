@@ -1,11 +1,12 @@
+// Login.jsx
 import React, { useState } from 'react';
 import { API_URL } from '../APIs/userAPI';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/Login.css';
 
 const Login = ({ onloginSuccess }) => {
-  const [email , setEmail] = useState('');
-  const [password , setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -19,21 +20,26 @@ const Login = ({ onloginSuccess }) => {
     try {
       const response = await fetch(`${API_URL}/login`, { 
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
+        credentials: 'include',
       });
 
       const data = await response.json();
+      if (!response.ok) throw new Error(data.message || 'Login Failed');
 
-      if (!response.ok) {
-        throw new Error(data.message || 'Login Failed');
-      }
+      // ✅ Save user
+      localStorage.setItem('user', JSON.stringify(data.user));
 
-      localStorage.setItem('token', data.token);
-      onloginSuccess();
-      navigate('/account');
-    } catch (error) {
-      setError(error.message);
+      // ✅ Call callback to update App state
+      if (onloginSuccess) onloginSuccess(data.user);
+
+      // ✅ Redirect
+      if (data.user.isAdmin) navigate('/adminpage');
+      else navigate('/userpage');
+
+    } catch (err) {
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -46,7 +52,7 @@ const Login = ({ onloginSuccess }) => {
 
       {error && <div className="error">{error}</div>}
 
-      <form className="login-form" onSubmit={handleSubmit}>   
+      <form className="login-form" onSubmit={handleSubmit}>
         <input 
           type="email" 
           placeholder="Email" 
@@ -54,7 +60,6 @@ const Login = ({ onloginSuccess }) => {
           onChange={(e) => setEmail(e.target.value)} 
           required
         />
-
         <input 
           type="password" 
           placeholder="Password" 
@@ -62,7 +67,6 @@ const Login = ({ onloginSuccess }) => {
           onChange={(e) => setPassword(e.target.value)} 
           required
         />
-
         <button type="submit" disabled={loading}>
           {loading ? 'Logging in...' : 'Log in'}
         </button>
